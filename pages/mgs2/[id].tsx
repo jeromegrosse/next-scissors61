@@ -38,10 +38,10 @@ const VocabsComponent = ({vocabs}: {vocabs: VocabLine[]}) => {
                         <th>English</th>
                     </tr>
                 </thead>
+                <tbody>
+                    {formattedVocabs}
+                </tbody>
             </table>
-            <tbody>
-                {formattedVocabs}
-            </tbody>
         </>
     );
 }
@@ -56,8 +56,12 @@ const Mgs2Page = ({data}: {data: JsonPage}) => {
         <>
             <h1>{title}</h1>
             <img src={image} />
-            <SubtitlesComponent subtitles={subtitles}  />
-            <VocabsComponent vocabs={vocabs} />
+            <div className="inner">
+                <h5>Transcript</h5>
+                <SubtitlesComponent subtitles={subtitles}  />
+                <h5>Vocabulary</h5>
+                <VocabsComponent vocabs={vocabs} />
+            </div>
         </>
     )
 }

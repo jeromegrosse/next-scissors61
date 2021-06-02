@@ -2,8 +2,14 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 18px;
+  color: #eaeaea;
+  background-color: #252a34;
+}
+
+h1 {
+  font-size: 80px;
 }
 
 a {
@@ -11,6 +17,41 @@ a {
   text-decoration: none;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* For Firefox to horizontally scroll wider tables */
+  word-break: normal;
+  word-break: keep-all; }
+  table {
+    font-size: 12px; }
+    @media screen and (min-width: 320px) {
+      table {
+        font-size: calc(12px + 6 * ((100vw - 320px) / 960)); } }
+    @media screen and (min-width: 1280px) {
+      table {
+        font-size: 18px; } }
+
+th, td {
+  border-bottom: 1px solid rgba(234, 234, 234, 0.5); }
+
+th {
+  padding: 0.5em;
+  font-weight: bold;
+  text-align: left; }
+
+td {
+  padding: 0.5em; }
+
+tr, td, th {
+  vertical-align: middle;
+}
+
 * {
   box-sizing: border-box;
+}
+
+.inner {
+  padding-right: 4rem;
+  padding-left: 4rem;
 }
