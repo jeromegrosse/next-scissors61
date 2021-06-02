@@ -1,33 +1,81 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { Furigana } from 'furigana-react'
 import { JsonPage, SubtitleLine, VocabLine } from '../../types';
 
 
-const SubtitlesComponent = ({subtitles}: {subtitles: SubtitleLine[]}) => {
-    const formattedSubtitles = subtitles.map((subtitleLine) => (
-        <>
-            <p>
-                {subtitleLine.japanese}<br />
-                {subtitleLine.english}
-            </p>
-        </>
-    ));
+const extractFurigana = (input: string): string => {
+    /**
+     * furigana-react expects :-separed furigana.
+     * The JSON files use the ruby notation, that is: ({新型}(しんがた)).
+     * This methods converts an input with the ruby notation to the furigana-react notation.
+     */
+    const matches = input.match(/\([^\)]+\)/g);
+    if (matches) {
+        return matches.map((furiganaWithBraces) => furiganaWithBraces.replace(/\(|\)/g , ''))
+            .join(':');
+    }
+    return '';
+    
+}
 
-    return (
-        <>
-            {formattedSubtitles}
-        </>
-    );
+const removeFurigana = (input: string): string => {
+    /**
+     * furigana-react can match the provided furigana with the kanjis in input.
+     * This method convert a string using the ruby notion for furigana to a 
+     * a string without furigana.
+     */
+
+    return input.replace(/\([^}]+\)/g, '') // Delete the furigana marking
+        .replace(/{|}/g , ''); // Delete the parentesis from the ruby notation.
+}
+
+
+const SubtitlesComponent = ({subtitles}: {subtitles: SubtitleLine[]}) => {
+    const formattedSubtitles = subtitles.map((subtitleLine) => {
+        const {japanese, english} = subtitleLine;
+        const furigana = extractFurigana(japanese);
+        const rawJapaneseText = removeFurigana(japanese);
+
+        return (
+            <p>
+                <Furigana
+                        furigana={furigana}
+                        opacity={1}
+                        spacingUnit={20}>
+                        {rawJapaneseText}
+                </Furigana><br />
+                {english}
+            </p>
+        )
+    });
+
+    return (<>
+        {formattedSubtitles}
+    </>);
 }
 
 const VocabsComponent = ({vocabs}: {vocabs: VocabLine[]}) => {
-    const formattedVocabs = vocabs.map((vocab) => (
-        <>
+    const formattedVocabs = vocabs.map((vocab) => {
+        const {japanese, english} = vocab;
+        const furigana = extractFurigana(japanese);
+        const rawJapaneseText = removeFurigana(japanese);
+
+        return (
+            <>
             <tr>
-                <td>{vocab.japanese}</td>
-                <td>{vocab.english}</td>
+                <td>
+                    <Furigana
+                        furigana={furigana}
+                        opacity={1}
+                        spacingUnit={5}>
+                        {rawJapaneseText}
+                    </Furigana>
+                </td>
+                <td>{english}</td>
             </tr>
         </>
-    ));
+        )
+    });
 
     return (
         <>

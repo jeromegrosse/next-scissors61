@@ -10,7 +10,7 @@
             "english": "The Hudson River, two years ago..."
         },
         {
-            "japanese": "俺達は{新型}(しんがた)メタルギアが{極秘裏}(ごくひ)に{輸送}(ゆそう)されるという{情報}(じょうほう)をつかんだ…",
+            "japanese": "{俺達}(おれたち)は{新型}(しんがた)メタルギアが{極秘裏}(ごくひ)に{輸送}(ゆそう)されるという{情報}(じょうほう)をつかんだ…",
             "english": "We had classified intelligence that a new type of Metal Gear was scheduled for transport"
         },
         {
@@ -20,23 +20,23 @@
     ],
     "vocabs": [
         {
-            "japanese": "{新型}(しんがた)",
+            "japanese": "{新型}(しんがた) ",
             "english": "New type, new model"
         },
         {
-            "japanese": "{極秘裏}(ごくひ)",
+            "japanese": "{極秘裏}(ごくひ) ",
             "english": "Asolute secrecy"
         },
         {
-            "japanese": "{輸送}(ゆそう)",
+            "japanese": "{輸送}(ゆそう) ",
             "english": "Transport"
         },
         {
-            "japanese": "{情報}(じょうほう)",
+            "japanese": "{情報}(じょうほう) ",
             "english": "News, intelligence"
         },
         {
-            "japanese": "{疑}(うたが)う",
+            "japanese": "{疑}(うたが)う ",
             "english": "To doubt, to suspect"
         }
     ]

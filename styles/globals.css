@@ -3,7 +3,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 18px;
+  font-size: 25px;
   color: #eaeaea;
   background-color: #252a34;
 }
@@ -45,6 +45,15 @@ td {
 
 tr, td, th {
   vertical-align: middle;
+}
+
+.furigana-tag {
+  font-size: 70%!important;
+  top: -100%!important;
+}
+
+.kanji-tag {
+  font-size: 25px!important;
 }
 
 * {
