@@ -1,0 +1,43 @@
+{
+    "meta": {
+        "title": "Hudson River, Two Years Ago",
+        "image": "/mgs2/images/01-hudson-river-two-years-ago.jpeg",
+        "excerpt": "The Hudson River, two years ago... We had classified intelligence that a new type of Metal Gear was scheduled for transport. The whole thing stank... but our noses have been out in the cold too long."
+    },
+    "subtitles": [
+        {
+            "japanese": "2年前のハドソン川…",
+            "english": "The Hudson River, two years ago..."
+        },
+        {
+            "japanese": "俺達は{新型}(しんがた)メタルギアが{極秘裏}(ごくひ)に{輸送}(ゆそう)されるという{情報}(じょうほう)をつかんだ…<br>",
+            "english": "We had classified intelligence that a new type of Metal Gear was scheduled for transport"
+        },
+        {
+            "japanese": "今思えば―― {疑}(うたが)うべきだった…",
+            "english": "The whole thing stank... but our noses have been out in the cold too long."
+        }
+    ],
+    "vocabs": [
+        {
+            "japanese": "{新型}(しんがた)",
+            "english": "New type, new model"
+        },
+        {
+            "japanese": "{極秘裏}(ごくひ)",
+            "english": "Asolute secrecy"
+        },
+        {
+            "japanese": "{輸送}(ゆそう)",
+            "english": "Transport"
+        },
+        {
+            "japanese": "{情報}(じょうほう)",
+            "english": "News, intelligence"
+        },
+        {
+            "japanese": "{疑}(うたが)う",
+            "english": "To doubt, to suspect"
+        }
+    ]
+}
