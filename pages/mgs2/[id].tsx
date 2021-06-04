@@ -29,68 +29,69 @@ const removeFurigana = (input: string): string => {
         .replace(/{|}/g , ''); // Delete the parentesis from the ruby notation.
 }
 
+const DEFAULT_FURIGANA_PROPS = {
+    opacity: 1,
+    spacingUnit: 10
+}
+
 
 const SubtitlesComponent = ({subtitles}: {subtitles: SubtitleLine[]}) => {
-    const formattedSubtitles = subtitles.map((subtitleLine) => {
+    const formattedSubtitles = subtitles.map((subtitleLine, index) => {
         const {japanese, english} = subtitleLine;
         const furigana = extractFurigana(japanese);
         const rawJapaneseText = removeFurigana(japanese);
 
         return (
-            <p>
+            <p key={`subtitle_line_${index}`}>
                 <Furigana
-                        furigana={furigana}
-                        opacity={1}
-                        spacingUnit={20}>
-                        {rawJapaneseText}
+                    furigana={furigana}
+                    {...DEFAULT_FURIGANA_PROPS}>
+                    {rawJapaneseText}
                 </Furigana><br />
                 {english}
             </p>
         )
     });
 
-    return (<>
-        {formattedSubtitles}
-    </>);
+    return (
+        <>
+            {formattedSubtitles}
+        </>
+    );
 }
 
 const VocabsComponent = ({vocabs}: {vocabs: VocabLine[]}) => {
-    const formattedVocabs = vocabs.map((vocab) => {
+    const formattedVocabs = vocabs.map((vocab, index) => {
         const {japanese, english} = vocab;
         const furigana = extractFurigana(japanese);
         const rawJapaneseText = removeFurigana(japanese);
 
         return (
-            <>
-            <tr>
+            <tr key={`vocab_line_${index}`}>
                 <td>
                     <Furigana
                         furigana={furigana}
-                        opacity={1}
-                        spacingUnit={5}>
+                        {...DEFAULT_FURIGANA_PROPS}>
                         {rawJapaneseText}
                     </Furigana>
                 </td>
                 <td>{english}</td>
             </tr>
-        </>
         )
     });
 
     return (
-        <>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Japanse</th>
-                        <th>English</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {formattedVocabs}
-                </tbody>
-            </table>
-        </>
+        <table>
+            <thead>
+                <tr>
+                    <th>Japanse</th>
+                    <th>English</th>
+                </tr>
+            </thead>
+            <tbody>
+                {formattedVocabs}
+            </tbody>
+        </table>
     );
 }
 
@@ -99,16 +100,25 @@ const Mgs2Page = ({data}: {data: JsonPage}) => {
         meta: {title, image},
         subtitles,
         vocabs,
+        media
     } = data;
     return (
         <>
-            <h1>{title}</h1>
-            <img src={image} />
+            <img className="article-image" src={image} />
             <div className="inner">
-                <h5>Transcript</h5>
-                <SubtitlesComponent subtitles={subtitles}  />
-                <h5>Vocabulary</h5>
-                <VocabsComponent vocabs={vocabs} />
+                <h1>{title}</h1>
+                <audio controls>
+                    <source src={media} type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+                <div className="transcript">
+                    <h5>Transcript</h5>
+                    <SubtitlesComponent subtitles={subtitles}  />
+                </div>
+                <div className="vocabulary">
+                    <h5>Vocabulary</h5>
+                    <VocabsComponent vocabs={vocabs} />
+                </div>
             </div>
         </>
     )

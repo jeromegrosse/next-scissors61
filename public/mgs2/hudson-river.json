@@ -14,7 +14,7 @@
             "english": "We had classified intelligence that a new type of Metal Gear was scheduled for transport"
         },
         {
-            "japanese": "今思えば―― {疑}(うたが)うべきだった…",
+            "japanese": "{今思}(いまおも)えば―― {疑}(うたが)うべきだった…",
             "english": "The whole thing stank... but our noses have been out in the cold too long."
         }
     ],
@@ -39,5 +39,6 @@
             "japanese": "{疑}(うたが)う ",
             "english": "To doubt, to suspect"
         }
-    ]
+    ],
+    "media": "https://s3-eu-west-1.amazonaws.com/hudson-river-ghost/hudson-river.mp3"
 }
