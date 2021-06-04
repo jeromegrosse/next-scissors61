@@ -1,5 +1,7 @@
+import fs from 'fs';
+import { Furigana } from 'furigana-react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Furigana } from 'furigana-react'
+import path from 'path';
 import { JsonPage, SubtitleLine, VocabLine } from '../../types';
 
 
@@ -11,11 +13,11 @@ const extractFurigana = (input: string): string => {
      */
     const matches = input.match(/\([^\)]+\)/g);
     if (matches) {
-        return matches.map((furiganaWithBraces) => furiganaWithBraces.replace(/\(|\)/g , ''))
+        return matches.map((furiganaWithBraces) => furiganaWithBraces.replace(/\(|\)/g, ''))
             .join(':');
     }
     return '';
-    
+
 }
 
 const removeFurigana = (input: string): string => {
@@ -26,7 +28,7 @@ const removeFurigana = (input: string): string => {
      */
 
     return input.replace(/\([^}]+\)/g, '') // Delete the furigana marking
-        .replace(/{|}/g , ''); // Delete the parentesis from the ruby notation.
+        .replace(/{|}/g, ''); // Delete the parentesis from the ruby notation.
 }
 
 const DEFAULT_FURIGANA_PROPS = {
@@ -35,9 +37,9 @@ const DEFAULT_FURIGANA_PROPS = {
 }
 
 
-const SubtitlesComponent = ({subtitles}: {subtitles: SubtitleLine[]}) => {
+const SubtitlesComponent = ({ subtitles }: { subtitles: SubtitleLine[] }) => {
     const formattedSubtitles = subtitles.map((subtitleLine, index) => {
-        const {japanese, english} = subtitleLine;
+        const { japanese, english } = subtitleLine;
         const furigana = extractFurigana(japanese);
         const rawJapaneseText = removeFurigana(japanese);
 
@@ -60,9 +62,9 @@ const SubtitlesComponent = ({subtitles}: {subtitles: SubtitleLine[]}) => {
     );
 }
 
-const VocabsComponent = ({vocabs}: {vocabs: VocabLine[]}) => {
+const VocabsComponent = ({ vocabs }: { vocabs: VocabLine[] }) => {
     const formattedVocabs = vocabs.map((vocab, index) => {
-        const {japanese, english} = vocab;
+        const { japanese, english } = vocab;
         const furigana = extractFurigana(japanese);
         const rawJapaneseText = removeFurigana(japanese);
 
@@ -95,9 +97,9 @@ const VocabsComponent = ({vocabs}: {vocabs: VocabLine[]}) => {
     );
 }
 
-const Mgs2Page = ({data}: {data: JsonPage}) => {
+const Mgs2Page = ({ data }: { data: JsonPage }) => {
     const {
-        meta: {title, image},
+        meta: { title, image },
         subtitles,
         vocabs,
         media
@@ -113,7 +115,7 @@ const Mgs2Page = ({data}: {data: JsonPage}) => {
                 </audio>
                 <div className="transcript">
                     <h5>Transcript</h5>
-                    <SubtitlesComponent subtitles={subtitles}  />
+                    <SubtitlesComponent subtitles={subtitles} />
                 </div>
                 <div className="vocabulary">
                     <h5>Vocabulary</h5>
@@ -125,9 +127,9 @@ const Mgs2Page = ({data}: {data: JsonPage}) => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const {id} = params;
-    const req = await fetch(`http://localhost:3000/mgs2/${id}.json`);
-    const data: JsonPage = await req.json();
+    const { id } = params;
+    const filepath = path.join(process.cwd(), `/public/mgs2/${id}.json`);
+    const data: JsonPage = JSON.parse(fs.readFileSync(filepath, 'utf8'));
 
     return {
         props: { data }
@@ -135,9 +137,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const req = await fetch(`http://localhost:3000/mgs2/pages.json`);
-    const data: string[] = await req.json();
-    const paths = data.map(id => ({ params: {id}}));
+    const jsonFilesLocation = path.join(process.cwd(), '/public/mgs2/');
+    const directoryContent = fs.readdirSync(jsonFilesLocation);
+    const jsonFiles = directoryContent.filter((filename) => filename.match(/\.(json)$/)) // Filter all file so we only get the JSON ones
+        .map(filename => filename.replace('.json', '')); // Remove .json extension
+    const paths = jsonFiles.map(id => ({ params: { id } }));
 
     return {
         paths,
