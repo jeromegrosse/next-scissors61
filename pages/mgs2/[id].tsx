@@ -99,14 +99,16 @@ const VocabsComponent = ({ vocabs }: { vocabs: VocabLine[] }) => {
 
 const Mgs2Page = ({ data }: { data: JsonPage }) => {
     const {
-        meta: { title, image },
+        meta: { title, image: imageSrc },
         subtitles,
         vocabs,
         media
     } = data;
+    const imageFilepath = path.join(process.cwd(), `/public/${imageSrc}`);
+
     return (
         <>
-            <img className="article-image" src={image} />
+            <img className="article-image" src={require('../../public/mgs2/images/01-hudson-river-two-years-ago.jpeg')} />
             <div className="inner">
                 <h1>{title}</h1>
                 <audio controls>
