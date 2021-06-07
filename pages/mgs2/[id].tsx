@@ -1,100 +1,13 @@
 import fs from 'fs';
-import { Furigana } from 'furigana-react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import path from 'path';
-import { JsonPage, SubtitleLine, VocabLine } from '../../types';
+import { SubtitlesComponent } from '../../components/SubtitlesComponent';
+import { VocabsComponent } from '../../components/VocabsComponent';
+import { JsonPage } from '../../types';
 
-
-const extractFurigana = (input: string): string => {
-    /**
-     * furigana-react expects :-separed furigana.
-     * The JSON files use the ruby notation, that is: ({新型}(しんがた)).
-     * This methods converts an input with the ruby notation to the furigana-react notation.
-     */
-    const matches = input.match(/\([^\)]+\)/g);
-    if (matches) {
-        return matches.map((furiganaWithBraces) => furiganaWithBraces.replace(/\(|\)/g, ''))
-            .join(':');
-    }
-    return '';
-
-}
-
-const removeFurigana = (input: string): string => {
-    /**
-     * furigana-react can match the provided furigana with the kanjis in input.
-     * This method convert a string using the ruby notion for furigana to a 
-     * a string without furigana.
-     */
-
-    return input.replace(/\([^}]+\)/g, '') // Delete the furigana marking
-        .replace(/{|}/g, ''); // Delete the parentesis from the ruby notation.
-}
-
-const DEFAULT_FURIGANA_PROPS = {
+export const DEFAULT_FURIGANA_PROPS = {
     opacity: 1,
     spacingUnit: 10
-}
-
-
-const SubtitlesComponent = ({ subtitles }: { subtitles: SubtitleLine[] }) => {
-    const formattedSubtitles = subtitles.map((subtitleLine, index) => {
-        const { japanese, english } = subtitleLine;
-        const furigana = extractFurigana(japanese);
-        const rawJapaneseText = removeFurigana(japanese);
-
-        return (
-            <p key={`subtitle_line_${index}`}>
-                <Furigana
-                    furigana={furigana}
-                    {...DEFAULT_FURIGANA_PROPS}>
-                    {rawJapaneseText}
-                </Furigana><br />
-                {english}
-            </p>
-        )
-    });
-
-    return (
-        <>
-            {formattedSubtitles}
-        </>
-    );
-}
-
-const VocabsComponent = ({ vocabs }: { vocabs: VocabLine[] }) => {
-    const formattedVocabs = vocabs.map((vocab, index) => {
-        const { japanese, english } = vocab;
-        const furigana = extractFurigana(japanese);
-        const rawJapaneseText = removeFurigana(japanese);
-
-        return (
-            <tr key={`vocab_line_${index}`}>
-                <td>
-                    <Furigana
-                        furigana={furigana}
-                        {...DEFAULT_FURIGANA_PROPS}>
-                        {rawJapaneseText}
-                    </Furigana>
-                </td>
-                <td>{english}</td>
-            </tr>
-        )
-    });
-
-    return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Japanse</th>
-                    <th>English</th>
-                </tr>
-            </thead>
-            <tbody>
-                {formattedVocabs}
-            </tbody>
-        </table>
-    );
 }
 
 const Mgs2Page = ({ data }: { data: JsonPage }) => {
@@ -104,11 +17,10 @@ const Mgs2Page = ({ data }: { data: JsonPage }) => {
         vocabs,
         media
     } = data;
-    const imageFilepath = path.join(process.cwd(), `/public/${imageSrc}`);
 
     return (
         <>
-            <img className="article-image" src={require('../../public/mgs2/images/01-hudson-river-two-years-ago.jpeg')} />
+            <img className="article-image" src={imageSrc} />
             <div className="inner">
                 <h1>{title}</h1>
                 <audio controls>
