@@ -7,15 +7,18 @@
     "subtitles": [
         {
             "japanese": "2年前のハドソン川…",
-            "english": "The Hudson River, two years ago..."
+            "english": "The Hudson River, two years ago...",
+            "start": 0
         },
         {
             "japanese": "{俺達}(おれたち)は{新型}(しんがた)メタルギアが{極秘裏}(ごくひ)に{輸送}(ゆそう)されるという{情報}(じょうほう)をつかんだ…",
-            "english": "We had classified intelligence that a new type of Metal Gear was scheduled for transport"
+            "english": "We had classified intelligence that a new type of Metal Gear was scheduled for transport",
+            "start": 4
         },
         {
             "japanese": "{今思}(いまおも)えば―― {疑}(うたが)うべきだった…",
-            "english": "The whole thing stank... but our noses have been out in the cold too long."
+            "english": "The whole thing stank... but our noses have been out in the cold too long.",
+            "start": 11
         }
     ],
     "vocabs": [

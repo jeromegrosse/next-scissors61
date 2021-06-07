@@ -1,6 +1,8 @@
 import fs from 'fs';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import path from 'path';
+import React from 'react';
+import ReactPlayer from 'react-player';
 import { SubtitlesComponent } from '../../components/SubtitlesComponent';
 import { VocabsComponent } from '../../components/VocabsComponent';
 import { JsonPage } from '../../types';
@@ -17,20 +19,24 @@ const Mgs2Page = ({ data }: { data: JsonPage }) => {
         vocabs,
         media
     } = data;
+    const playerRef = React.createRef<ReactPlayer>();
 
     return (
         <>
             <img className="article-image" src={imageSrc} />
             <div className="inner">
                 <h1>{title}</h1>
-                <audio controls>
-                    <source src={media} type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                </audio>
+
                 <div className="transcript">
                     <h5>Transcript</h5>
-                    <SubtitlesComponent subtitles={subtitles} />
+                    <ReactPlayer
+                        url={media}
+                        controls={true}
+                        ref={playerRef}
+                        height={'50px'} />
+                    <SubtitlesComponent subtitles={subtitles} player={playerRef} />
                 </div>
+
                 <div className="vocabulary">
                     <h5>Vocabulary</h5>
                     <VocabsComponent vocabs={vocabs} />

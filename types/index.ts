@@ -1,6 +1,7 @@
 export interface SubtitleLine {
     japanese: string;
     english: string;
+    start: number;
 }
 
 export interface VocabLine {
