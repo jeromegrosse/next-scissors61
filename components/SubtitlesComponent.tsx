@@ -1,6 +1,6 @@
 import { Furigana } from 'furigana-react';
 import ReactPlayer from 'react-player';
-import { DEFAULT_FURIGANA_PROPS } from '../pages/mgs2/[id]';
+import { DEFAULT_FURIGANA_PROPS } from '../layout/Main';
 import { SubtitleLine } from '../types';
 import { extractFurigana, removeFurigana } from "../utils/utils";
 

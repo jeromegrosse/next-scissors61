@@ -1,7 +1,7 @@
 import { Furigana } from 'furigana-react';
 import { VocabLine } from '../types';
 import { extractFurigana, removeFurigana } from '../utils/utils';
-import { DEFAULT_FURIGANA_PROPS } from '../pages/mgs2/[id]';
+import { DEFAULT_FURIGANA_PROPS } from '../layout/Main';
 
 export const VocabsComponent = ({ vocabs }: { vocabs: VocabLine[]; }) => {
     const formattedVocabs = vocabs.map((vocab, index) => {

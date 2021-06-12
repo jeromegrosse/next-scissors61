@@ -2,49 +2,11 @@ import fs from 'fs';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import path from 'path';
 import React from 'react';
-import ReactPlayer from 'react-player';
-import { SubtitlesComponent } from '../../components/SubtitlesComponent';
-import { VocabsComponent } from '../../components/VocabsComponent';
+import { PostItem } from '../../layout/Post';
 import { JsonPage } from '../../types';
 
-export const DEFAULT_FURIGANA_PROPS = {
-    opacity: 1,
-    spacingUnit: 10
-}
 
-const Mgs2Page = ({ data }: { data: JsonPage }) => {
-    const {
-        meta: { title, image: imageSrc },
-        subtitles,
-        vocabs,
-        media
-    } = data;
-    const playerRef = React.createRef<ReactPlayer>();
-
-    return (
-        <>
-            <img className="article-image" src={imageSrc} />
-            <div className="inner">
-                <h1>{title}</h1>
-
-                <div className="transcript">
-                    <h5>Transcript</h5>
-                    <ReactPlayer
-                        url={media}
-                        controls={true}
-                        ref={playerRef}
-                        height={'50px'} />
-                    <SubtitlesComponent subtitles={subtitles} player={playerRef} />
-                </div>
-
-                <div className="vocabulary">
-                    <h5>Vocabulary</h5>
-                    <VocabsComponent vocabs={vocabs} />
-                </div>
-            </div>
-        </>
-    )
-}
+const Mgs2Page = ({ data }: { data: JsonPage }) => <PostItem data={data} />
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { id } = params;
