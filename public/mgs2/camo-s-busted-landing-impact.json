@@ -16,7 +16,7 @@
             "start": 3
         },
         {
-            "japanese": "スネーク: 待たせたな、{潜入}(スニーク)ポイントに{到着}(とうちゃく)……",
+            "japanese": "スネーク: {待}(ま)たせたな、{潜入}(スニーク)ポイントに{到着}(とうちゃく)……",
             "english": "Kept you waiting, huh? I'm at the \"sneak point.\"",
             "start": 6
         },
@@ -46,7 +46,7 @@
             "start": 22
         },
         {
-            "japanese": "スネーク: 変な{薬}(くすり)も{盛}(も)られずにすむしな。",
+            "japanese": "スネーク: {変}(へん)な{薬}(くすり)も{盛}(も)られずにすむしな。",
             "english": "I'm happy as long as no one gives me any more unwanted gifts.",
             "start": 26
         },
@@ -56,7 +56,7 @@
             "start": 29
         },
         {
-            "japanese": "スネーク: うるさい{見張}(みは)り{役}(やく)がいないのも気が{楽}(らく)だ。",
+            "japanese": "スネーク: うるさい{見張}(みは)り{役}(やく)がいないのも{気}(き)が{楽}(らく)だ。",
             "english": "And I can't say I miss the chattering nanny.",
             "start": 30
         },
@@ -66,12 +66,12 @@
             "start": 32
         },
         {
-            "japanese": "スネーク: {陸軍兵士}(りくぐん){システム}(SSCEN)センターからの{横流}(よこなが)しか。彼女に{伝}(つた)えておいてくれ。いずれはバレる。早いうちに手を{引}(ひ)くようにな。",
+            "japanese": "スネーク: {陸軍兵士}(りくぐんへいし)システムセンターからの{横流}(よこなが)しか。{彼女}(かのじょ)に{伝}(つた)えておいてくれ。いずれはバレる。{早}(はや)いうちに{手}(て)を{引}(ひ)くようにな。",
             "english": "Diverting toys from the SSCEN again? Give her a message from me: someone will find out sooner or later. She's better off assuming it's sooner and quit while she's safe.",
             "start": 37
         },
         {
-            "japanese": "オタコン: それもそうだね……。じゃあスネーク、{本題}(ほんだい)に{入}(はい)るよ。シャドーモセス{事件}(じけん)のあとメタルギアの{技術}(ぎじゅつ){情報}(じょうほう)がブラックマーケットで{密売}(みつばい)されたよね。",
+            "japanese": "オタコン: それもそうだね……。じゃあスネーク、{本題}(ほんだい)に{入}(はい)るよ。シャドーモセス{事件}(じけん)のあとメタルギアの{技術情報}(ぎじゅつじょうほう)がブラックマーケットで{密売}(みつばい)されたよね。",
             "english": "Too true. Okay, Snake, let's get to work. You know how the technical specs of Meal Gear were sold on the black market after Shadow Moses?",
             "start": 47
         },
@@ -86,7 +86,7 @@
             "start": 60
         },
         {
-            "japanese": "スネーク: いまや{核武装}(かくぶそう){国}(こく)にとって、メタルギアは{特別}(とくべつ)な{兵器}(へいき)ではない。",
+            "japanese": "スネーク: いまや{核武装国}(かくぶそうこく)にとって、メタルギアは{特別}(とくべつ)な{兵器}(へいき)ではない。",
             "english": "Not exactly a classified weapon for today's nuclear powers.",
             "start": 64
         },
@@ -103,159 +103,159 @@
     ],
     "vocabs": [
         {
-            "japanese": "{到着}(とうちゃく)",
+            "japanese": "{到着}(とうちゃく) ",
             "english": "Arrival"
         },
         {
-            "japanese": "{上手}(うま)くいく ",
+            "japanese": "{上手}(うま)くいく  ",
             "english": "To go smoostly"
         },
         {
-            "japanese": "{着地}(ちゃくち)",
+            "japanese": "{着地}(ちゃくち) ",
             "english": "Landing"
         },
         {
-            "japanese": "{衝撃}(しょうげき)",
+            "japanese": "{衝撃}(しょうげき) ",
             "english": "Shock"
         },
         {
-            "japanese": "{迷彩}(めいさい)",
+            "japanese": "{迷彩}(めいさい) ",
             "english": "Camouflage, disguise"
         },
         {
-            "japanese": "{壊}(こわ)れる ",
+            "japanese": "{壊}(こわ)れる  ",
             "english": "To break, to fall apart"
         },
         {
-            "japanese": "{我慢}(がまん)",
+            "japanese": "{我慢}(がまん) ",
             "english": "Patience"
         },
         {
-            "japanese": "{軍}(ぐん)",
+            "japanese": "{軍}(ぐん) ",
             "english": "Army"
         },
         {
-            "japanese": "{随分}(ずいぶん)",
+            "japanese": "{随分}(ずいぶん) ",
             "english": "Very, extremely"
         },
         {
-            "japanese": "{頼}(たよ)る ",
+            "japanese": "{頼}(たよ)る  ",
             "english": "To rely on"
         },
         {
-            "japanese": "{民間}(みんかん)",
+            "japanese": "{民間}(みんかん) ",
             "english": "Private, unofficial"
         },
         {
-            "japanese": "{守}(まも)る ",
+            "japanese": "{守}(まも)る  ",
             "english": "To guard, to protect, to defend"
         },
         {
-            "japanese": "{薬}(くすり)",
+            "japanese": "{薬}(くすり) ",
             "english": "Medicine, pill"
         },
         {
-            "japanese": "{見張}(みは)り ",
+            "japanese": "{見張}(みは)り  ",
             "english": "Guard, lookout, watch-keeping"
         },
         {
-            "japanese": "気が{楽}(らく)",
+            "japanese": "気が{楽}(らく) ",
             "english": "My mind is at ease"
         },
         {
-            "japanese": "{頼}(たの)む ",
+            "japanese": "{頼}(たの)む  ",
             "english": "To request, to ask"
         },
         {
-            "japanese": "{新}(しん)",
+            "japanese": "{新}(しん) ",
             "english": "New"
         },
         {
-            "japanese": "{兵器}(へいき)",
+            "japanese": "{兵器}(へいき) ",
             "english": "Weapon"
         },
         {
-            "japanese": "{陸軍兵士}(りくぐん)",
+            "japanese": "{陸軍兵士}(りくぐん) ",
             "english": "Army"
         },
         {
-            "japanese": "{横流}(よこなが)し ",
+            "japanese": "{横流}(よこなが)し  ",
             "english": "Diversion into illegal channels; Putting on the black market"
         },
         {
-            "japanese": "{伝}(つた)える ",
+            "japanese": "{伝}(つた)える  ",
             "english": "To report, to convey"
         },
         {
-            "japanese": "うちに ",
+            "japanese": "うちに  ",
             "english": "While, before, during"
         },
         {
-            "japanese": "{本題}(ほんだい)",
+            "japanese": "{本題}(ほんだい) ",
             "english": "Main question"
         },
         {
-            "japanese": "{事件}(じけん)",
+            "japanese": "{事件}(じけん) ",
             "english": "Event, incident"
         },
         {
-            "japanese": "{技術}(ぎじゅつ)",
+            "japanese": "{技術}(ぎじゅつ) ",
             "english": "Art, craft, technique"
         },
         {
-            "japanese": "{密売}(みつばい)",
+            "japanese": "{密売}(みつばい) ",
             "english": "Smuggle"
         },
         {
-            "japanese": "{仕業}(しわざ)",
+            "japanese": "{仕業}(しわざ) ",
             "english": "Action, doing"
         },
         {
-            "japanese": "{全世界}(ぜんせかい)",
+            "japanese": "{全世界}(ぜんせかい) ",
             "english": "The whole world"
         },
         {
-            "japanese": "{亜種}(あしゅ)",
+            "japanese": "{亜種}(あしゅ) ",
             "english": "Subspecies"
         },
         {
-            "japanese": "{拡散}(かくさん)",
+            "japanese": "{拡散}(かくさん) ",
             "english": "Scatter, spread"
         },
         {
-            "japanese": "{核武装}(かくぶそう)",
+            "japanese": "{核武装}(かくぶそう) ",
             "english": "Nuclear weapon"
         },
         {
-            "japanese": "{特別}(とくべつ)な ",
+            "japanese": "{特別}(とくべつ)な  ",
             "english": "Special"
         },
         {
-            "japanese": "{対抗}(たいこう)",
+            "japanese": "{対抗}(たいこう) ",
             "english": "Opposition, antagonism"
         },
         {
-            "japanese": "{設計}(せっけい)",
+            "japanese": "{設計}(せっけい) ",
             "english": "To plan, to design"
         },
         {
-            "japanese": "{水陸両用}(すいりくりょうよう)",
+            "japanese": "{水陸両用}(すいりくりょうよう) ",
             "english": "Amphibious"
         },
         {
-            "japanese": "{対}(たい)",
+            "japanese": "{対}(たい) ",
             "english": "Opposition, versus"
         },
         {
-            "japanese": "{海兵隊}(かいへたい)",
+            "japanese": "{海兵隊}(かいへたい) ",
             "english": "Marine corps"
         },
         {
-            "japanese": "{所属}(しょぞく)",
+            "japanese": "{所属}(しょぞく) ",
             "english": "Attached to, belong to"
         },
         {
-            "japanese": "{訳}(わけ)",
+            "japanese": "{訳}(わけ) ",
             "english": "For that reason, no wonder..."
         }
     ],
