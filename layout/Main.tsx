@@ -5,14 +5,16 @@ export const DEFAULT_FURIGANA_PROPS = {
   spacingUnit: 10
 }
 
-export default ({ children, title = 'This is the default title' }) => (
+const Main = ({ children, title = '' }) => (
   <>
     <Head>
-      <title>{ title }</title>
+      <title>Hudson River, two years ago. { title }</title>
     </Head>
     
     <main>
       { children }
     </main>
   </>
-)
+);
+
+export default Main;

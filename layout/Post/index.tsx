@@ -17,7 +17,7 @@ export const PostItem = ({ data }: { data: JsonPage }) => {
     const playerRef = React.createRef<ReactPlayer>();
 
     return (
-        <Main>
+        <Main title={title}>
             <img className="article-image" src={imageSrc} />
             <div className="inner">
                 <h1>{title}</h1>
@@ -43,26 +43,32 @@ export const PostItem = ({ data }: { data: JsonPage }) => {
 
 
 
-export const Posts = ({ posts }: {posts: {[key: string]: JsonPage}}) => {
-    const PostLine = ({slug, post}: {slug: string, post: JsonPage}) => {
+export const Posts = ({ posts }: { posts: { [key: string]: JsonPage } }) => {
+    const PostLine = ({ slug, post }: { slug: string, post: JsonPage }) => {
         const {
             meta: { title, excerpt },
         } = post;
 
         return (
-            <>
-                <Link href={`/mgs2/${encodeURIComponent(slug)}`}><p>{title}</p></Link>
-                <p><i>{excerpt}</i></p>
-            </>
+            <tr>
+                <td>
+                    <Link href={`/mgs2/${encodeURIComponent(slug)}`}><p>{title}</p></Link>
+                    <p><i>{excerpt}</i></p>
+                </td>
+            </tr>
         );
     }
     return (
-        <Main>
-            {Object.keys(posts).map(slug => {
-                const post = posts[slug];
+        <Main title="MGS2">
+            <table>
+                <tbody>
+                    {Object.keys(posts).map(slug => {
+                        const post = posts[slug];
 
-                return <PostLine key={slug} slug={slug} post={post} />
-            })}
+                        return <PostLine key={slug} slug={slug} post={post} />
+                    })}
+                </tbody>
+            </table>
         </Main>
     )
 }

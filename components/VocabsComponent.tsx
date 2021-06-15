@@ -27,7 +27,7 @@ export const VocabsComponent = ({ vocabs }: { vocabs: VocabLine[]; }) => {
         <table>
             <thead>
                 <tr>
-                    <th>Japanse</th>
+                    <th>Japanese</th>
                     <th>English</th>
                 </tr>
             </thead>
