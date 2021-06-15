@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next buld && next export"
+    "export": "next build && next export"
   },
   "dependencies": {
     "furigana-react": "^1.0.0",

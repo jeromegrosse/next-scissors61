@@ -95,4 +95,9 @@ tr, td, th {
 
 .subtitle-line {
   cursor: pointer;
+  color: grey;
+}
+
+.subtitle-line.unplayed {
+  color: white;
 }

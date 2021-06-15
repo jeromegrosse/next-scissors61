@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 import { SubtitlesComponent } from '../../components/SubtitlesComponent';
 import { VocabsComponent } from '../../components/VocabsComponent';
@@ -15,6 +15,8 @@ export const PostItem = ({ data }: { data: JsonPage }) => {
         media
     } = data;
     const playerRef = React.createRef<ReactPlayer>();
+    const [playerAtSecond, setPlayerAtSecond] = useState(0);
+    const onProgress = ({ playedSeconds }) => setPlayerAtSecond(Math.floor(playedSeconds));
 
     return (
         <Main title={title}>
@@ -28,8 +30,9 @@ export const PostItem = ({ data }: { data: JsonPage }) => {
                         url={media}
                         controls={true}
                         ref={playerRef}
+                        onProgress={onProgress}
                         height={'50px'} />
-                    <SubtitlesComponent subtitles={subtitles} player={playerRef} />
+                    <SubtitlesComponent subtitles={subtitles} player={playerRef} playerAtSecond={playerAtSecond} />
                 </div>
 
                 <div className="vocabulary">
@@ -40,7 +43,6 @@ export const PostItem = ({ data }: { data: JsonPage }) => {
         </Main>
     )
 };
-
 
 
 export const Posts = ({ posts }: { posts: { [key: string]: JsonPage } }) => {
