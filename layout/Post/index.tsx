@@ -26,12 +26,14 @@ export const PostItem = ({ data }: { data: JsonPage }) => {
 
                 <div className="transcript">
                     <h5>Transcript</h5>
-                    <ReactPlayer
-                        url={media}
-                        controls={true}
-                        ref={playerRef}
-                        onProgress={onProgress}
-                        height={'50px'} />
+                    <div id={'sticky-player'}>
+                        <ReactPlayer
+                            url={media}
+                            controls={true}
+                            ref={playerRef}
+                            onProgress={onProgress}
+                            height={'50px'} />
+                    </div>
                     <SubtitlesComponent subtitles={subtitles} player={playerRef} playerAtSecond={playerAtSecond} />
                 </div>
 

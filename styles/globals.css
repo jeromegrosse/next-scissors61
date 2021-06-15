@@ -101,3 +101,12 @@ tr, td, th {
 .subtitle-line.unplayed {
   color: white;
 }
+
+#sticky-player {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  padding: 30px 5px 30px 5px;
+  background-color: #303540;
+  z-index: 1;
+}
